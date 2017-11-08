@@ -1,9 +1,19 @@
+/*
+attribute变量的理解与使用，实现javascript到shader着色器的传参
+
+*/
+
+
+
 //顶点着色器程序
 var VSHADER_SOURCE = 
+//设置attribute变量
 'attribute vec4 a_Position;\n' +
+'attribute float a_PointSize;\n' +
+
 'void main() {\n'+
 'gl_Position = a_Position;\n'+//设置坐标
-'gl_PointSize = 10.0;\n' + //设置尺寸
+'gl_PointSize = a_PointSize;\n' + //设置尺寸
 '}\n';
 
 //片元着色器程序
@@ -31,7 +41,17 @@ if(!initShaders(gl,VSHADER_SOURCE,FSHADER_SOURCE)){
 
 //获取attribute变量的存储位置
 var a_Position = gl.getAttribLocation(gl.program,'a_Position');
+var a_PointSize = gl.getAttribLocation(gl.program,'a_PointSize');
+if (a_Position < 0)
+    {
+        console.log('error');
+        reutrn;
+    }
+//将顶点位置传输给attribute变量
+gl.vertexAttrib3f(a_Position,0.5,0.5,0.0);
 
+//将顶点大小传递给attribute变量
+gl.vertexAttrib1f(a_PointSize,20.0);
 //设置canvas的背景色
 gl.clearColor(0.0,0.0,0.0,1.0);
 
