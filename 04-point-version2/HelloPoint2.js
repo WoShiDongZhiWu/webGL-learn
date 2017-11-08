@@ -28,6 +28,10 @@ if(!initShaders(gl,VSHADER_SOURCE,FSHADER_SOURCE)){
     console.log("error");
     return;
 }
+
+//获取attribute变量的存储位置
+var a_Position = gl.getAttribLocation(gl.program,'a_Position');
+
 //设置canvas的背景色
 gl.clearColor(0.0,0.0,0.0,1.0);
 
