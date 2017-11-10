@@ -7,12 +7,12 @@ var VSHADER_SOURCE =
     'attribute vec4 a_Position;\n' + 
     'void main(){\n' +
     'gl_Position = a_Position;\n' +
-    'gl_PointSize = 10.0;'+
+    'gl_PointSize = 10.0;\n'+
     '}\n';
 //片元着色器
 var FSHADER_SOURCE = 
     'void main(){\n' +
-    'gl_FragColor = vec4(1.0,0.0,0.0,1.0);\n'
+    'gl_FragColor = vec4(1.0,0.0,0.0,1.0);\n' +
     '}\n';
 
 function main(){
@@ -44,7 +44,7 @@ function main(){
 }
 
 var g_points = [];//鼠标点击位置的数组
-function click(ev,gl,VSHADER_SOURCE,FSHADER_SOURCE){
+function click(ev,gl,canvas,a_Position){
     var x = ev.clientX;//鼠标点击处的x坐标
     var y = ev.clientY;//鼠标点击处的y坐标
     var rect = ev.target.getBoundingClientRect();//获取canvas的边界坐标
