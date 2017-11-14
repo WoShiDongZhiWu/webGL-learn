@@ -48,8 +48,8 @@ function click(ev,gl,canvas,a_Position){
     var x = ev.clientX;//鼠标点击处的x坐标
     var y = ev.clientY;//鼠标点击处的y坐标
     var rect = ev.target.getBoundingClientRect();//获取canvas的边界坐标
-    x = ((x - rect.left) - canvas.height/2)/(canvas.height/2);
-    y = (canvas.width/2 - (y - rect.top))/(canvas.width/2);
+    x = ((x - rect.left) - canvas.width/2)/(canvas.width/2);
+    y = (canvas.height/2 - (y - rect.top))/(canvas.height/2);
     //将坐标存储到g_points数组中
     g_points.push(x);g_points.push(y);
 
