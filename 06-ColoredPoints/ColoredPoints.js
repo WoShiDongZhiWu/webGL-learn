@@ -41,7 +41,7 @@ var FSHADER_SOURCE =
 
         //获取u_FragColor 变量的存储位置
         var u_FragColor = gl.getUniformLocation(gl.program,'u_FragColor');
-        if(u_FragColor< 0){
+        if(!u_FragColor){
             console.log('error');
             return;
         }
