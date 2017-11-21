@@ -23,19 +23,19 @@ var FSHADER_SOURCE =
 var ANGLE = 90.0;
 
 function main(){
-    //获取canvas
+     //获取canvas
     var canvas = document.getElementById('webgl');
-    
-    //获取canvas 的 context
+
+    //获取canvas的context
     var gl = canvas.getContext('webgl');
     if(!gl){
-        console.log('error');
+        console.log('gl error');
         return;
     }
 
     //初始化着色器
     if(!initShaders(gl,VSHADER_SOURCE,FSHADER_SOURCE)){
-        console.log('error');
+        console.log('着色器 error');
         return;
     }
 
