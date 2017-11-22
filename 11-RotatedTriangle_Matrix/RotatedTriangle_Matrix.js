@@ -31,6 +31,7 @@ function main(){
     if(!initShaders(gl,VSHADER_SOURCE,FSHADER_SOURCE)){
         console.log('着色器 error');
         return;
+        
     }
 
     //设置顶点位置
