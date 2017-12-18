@@ -1,8 +1,8 @@
-// 光照-漫反射
+// 光照-平行光漫反射
 // 顶点着色器
 var VSHADER_SOURCE = 
   'attribute vec4 a_Position;\n' + 
-  'attribute vec4 a_Color;\n' + 
+  'attribute vec4 a_Color;\n' + //表面基底色
   'attribute vec4 a_Normal;\n' +        // 法向量
   'uniform mat4 u_MvpMatrix;\n' +
   'uniform vec3 u_LightColor;\n' +     // 光照颜色
@@ -14,9 +14,9 @@ var VSHADER_SOURCE =
   '  vec3 normal = normalize(a_Normal.xyz);\n' +
   // 计算光线方向和法向量的点集
   '  float nDotL = max(dot(u_LightDirection, normal), 0.0);\n' +
-  // 计算漫反射光的颜色
+  // 计算漫反射光的颜色，将a_color转化为vec3变量
   '  vec3 diffuse = u_LightColor * a_Color.rgb * nDotL;\n' +
-  '  v_Color = vec4(diffuse, a_Color.a);\n' +
+  '  v_Color = vec4(diffuse, a_Color.a);\n' +//vec3变量转化为vec4变量
   '}\n';
 
 // 片元着色器
@@ -73,11 +73,11 @@ function main() {
   lightDirection.normalize();     // 归一化处理
   gl.uniform3fv(u_LightDirection, lightDirection.elements);
 
-  // 计算视图矩阵
+  // 计算模型视图投影矩阵
   var mvpMatrix = new Matrix4();    // 
   mvpMatrix.setPerspective(30, canvas.width/canvas.height, 1, 100);
   mvpMatrix.lookAt(3, 3, 7, 0, 0, 0, 0, 1, 0);
-  // 将视图矩阵传递给 u_MvpMatrix 变量
+  // 将矩阵传递给 u_MvpMatrix 变量
   gl.uniformMatrix4fv(u_MvpMatrix, false, mvpMatrix.elements);
 
   // 清除颜色和深度缓冲
