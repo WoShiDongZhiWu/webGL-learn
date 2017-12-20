@@ -82,7 +82,7 @@ function main() {
   // 设置光线的颜色为白色
   gl.uniform3f(u_LightColor, 1.0, 1.0, 1.0);
   // 设置光源的位置 (世界坐标)
-  gl.uniform3f(u_LightPosition, 0.0,3.0,4.0);
+  gl.uniform3f(u_LightPosition, 2.3,4.0,3.5);
   //传入环境光颜色
   gl.uniform3f(u_AmbientLight,0.2,0.2,0.2);
   
@@ -96,7 +96,7 @@ function main() {
   gl.uniformMatrix4fv(u_ModelMatrix, false, modelMatrix.elements);
   // 计算模型视图投影矩阵
   mvpMatrix.setPerspective(30, canvas.width/canvas.height, 1, 100);
-  mvpMatrix.lookAt(-7, 2.5, 6, 0, 0, 0, 0, 1, 0);
+  mvpMatrix.lookAt(6, 6, 14, 0, 0, 0, 0, 1, 0);
   mvpMatrix.multiply(modelMatrix);
   // 将矩阵传递给 u_MvpMatrix 变量
   gl.uniformMatrix4fv(u_MvpMatrix, false, mvpMatrix.elements);
