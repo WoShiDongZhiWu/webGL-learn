@@ -192,7 +192,7 @@ function draw(gl,n,viewProjMatrix,u_MvpMatrix,u_NormalMatrix){
   g_modelMatrix.rotate(g_arm1Angle,0.0,1.0,0.0);//绕y轴旋转
   drawBox(gl,n,viewProjMatrix,u_MvpMatrix,u_NormalMatrix);
 
-  // Arm2
+  // Arm2 
   g_modelMatrix.translate(0.0, arm1Length, 0.0); 　　　// 移至joint1处
   g_modelMatrix.rotate(g_jointAngle, 0.0, 0.0, 1.0);  // 绕z轴旋转
   g_modelMatrix.scale(1.3, 1.0, 1.3); // 使立方体粗一点
