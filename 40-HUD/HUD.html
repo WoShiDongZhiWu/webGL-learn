@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>平视显示器</title>
+  </head>
+
+  <body onload="main()">
+    <!-- 将两个canvas重叠放置，hud在上方 -->
+    <canvas id="webgl" width="400" height="400" style="position:absolute;z-index:0">
+    请使用支持 "canvas"的浏览器
+    </canvas>
+    <canvas id="hud" width="400" height="400" style="position:absolute;z-index:1">
+      请使用支持 "canvas"的浏览器
+      </canvas>
+
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="../lib/cuon-matrix.js"></script>
+    <script src="HUD.js"></script>
+  </body>
+</html>
